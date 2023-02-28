@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manipulando Numeros</title>
+    </head>
+    <body>
+
+        <input type="text" placeholder="Informe o numero 1 " id="numero1">
+        <input type="text" placeholder="Informe o numero 2 " id="numero1">
+        <button onclick="minhaFuncao()">SOMA</button>
+        <script>
+            function minhaFuncao(){
+                
+                var numero1 = parseInt(document.querySelector("#numero1").value);
+                var numero2 = parseInt(document.querySelector("#numero2").value);
+                
+                alert(`Resultado: ${numero1+numero2}`);
+                
+            }
+        </script>
+    </body>
+</html>

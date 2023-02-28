@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz - X</title>
+</head>
+<body>
+    <h1>MATRIZ 9x9</h1>
+    <script>
+        function pulaLinha() {
+
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+        }
+                var diagonal = 9;
+            //LINHA 
+            for(var linha = 1; linha <= 9; linha ++){
+               
+            //COLUNA
+                for(var coluna = 1; coluna <= 9; coluna ++){
+                    var itemimpresso = coluna;
+                    
+                    if (coluna == linha && coluna != diagonal ){
+                        itemimpresso = "<strong>A</strong>";
+
+                    }else if(coluna == diagonal){
+                        itemimpresso ="<strong>A</strong>";
+                        diagonal --;
+
+                    }
+                    //mostra("[" + linha + "," + coluna + "]");
+                    mostra("|" + itemimpresso + "|");
+                }
+
+                pulaLinha();
+            }
+
+        </script>
+    
+</body>
+</html>
