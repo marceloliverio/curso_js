@@ -1,0 +1,37 @@
+<html>
+
+<h1 id="nomeCarro"></h1>
+
+</html>
+
+<script>
+var carroJson = {
+    nome: ["logan","Sandero","Fluence", "Clio"],
+    marca: "Renault",
+    ano: 2008,
+    cores: ["Branco" , "Preto", "Vermelho"]
+
+}
+
+function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+function imprimirDadosCarro(carro){
+    mostra("Nome: " + carro.nome);
+    mostra("Marca: " + carro.marca);
+    mostra("Ano: " + carro.ano);
+    mostra("Cores: " +carro.cores);
+    mostra("Qtd de cores: " + carro.cores.length);
+}  
+
+imprimirDadosCarro(carroJson);
+
+
+//document.querySelector("#nomeCarro").innerHTML = carro;
+
+</script>

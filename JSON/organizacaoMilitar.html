@@ -1,0 +1,101 @@
+
+<script>
+
+//nome da OM , logotipo, efetivo, comandante, localização, seções[]
+
+var organizacoesMilitares = [];
+var omCCABR = {
+    nome : "CCABR" ,
+    logotipo : "imagens\\ccabr.jpg" ,
+    efetivo : 180 ,
+    comandante : {
+        nome: "Cel Wagner",
+        foto: "imagens\\Comandante\\celwagner.jpg"
+        
+    } ,
+    localizacao: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.165489254955!2d-47.8743313846015!3d-15.79522562718463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9981e0ace3331f%3A0xbaa3946958e75b4c!2sComando%20da%20For%C3%A7a%20A%C3%A9rea%20Brasileira!5e0!3m2!1spt-BR!2sbr!4v1678973219044!5m2!1spt-BR!2sbr" ,
+    secoes: ["SAI","DT"]
+
+};
+var omOABR = {
+    nome : "OABR" ,
+    logotipo : "imagens\\oabr.jpg" ,
+    efetivo : 180 ,
+    comandante : {
+        nome: "Cel Dent Vanessa Costa",
+        foto: "imagens\\Comandante\\celVanessa.jpg"
+        
+    } ,
+    localizacao: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.165489254955!2d-47.8743313846015!3d-15.79522562718463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9981e0ace3331f%3A0xbaa3946958e75b4c!2sComando%20da%20For%C3%A7a%20A%C3%A9rea%20Brasileira!5e0!3m2!1spt-BR!2sbr!4v1678973219044!5m2!1spt-BR!2sbr" ,
+    secoes: ["SAI","DT"]
+
+};
+
+var omHFAB = {
+    nome : "HFAB" ,
+    logotipo : "imagens\\hfab.jpg" ,
+    efetivo : 250 ,
+    comandante : {
+        nome: "Cel Med Jorge Antonio",
+        foto: "imagens\\Comandante\\celJorgeAntonio.jpg"
+        
+    } ,
+    localizacao: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.7299860089747!2d-47.90445788514409!3d-15.870782589003776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3004c67e64c9%3A0x8fe50d93046f101b!2sHospital%20da%20For%C3%A7a%20A%C3%A9rea%20de%20Bras%C3%ADlia!5e0!3m2!1spt-BR!2sbr!4v1678975791135!5m2!1spt-BR!2sbr" ,
+    secoes: ["SAI","DT"]
+	
+	
+};
+
+organizacoesMilitares.push(omCCABR);
+organizacoesMilitares.push(omOABR);
+organizacoesMilitares.push(omHFAB);
+
+/* escrevendo as OM na tela manualmente
+escreverOM(omCCABR); 
+escreverOM(omHFAB);
+escreverOM(omOABR);*/
+
+// escrever as OM na tela com o for
+for(var i=0; i<organizacoesMilitares.length; i++){
+    escreverOM(organizacoesMilitares[i]);
+}
+
+function escreverOM(om){
+    mostra("Nome da OM: " + om.nome);
+    mostraImagem(om.logotipo, om.nome);
+    mostra("Efetivo: " + om.efetivo);
+    mostra("Comandante " + om.comandante.nome);
+    mostraImagem(om.comandante.foto, om.comandante.nome);
+    mostrarLocalizacao(om.localizacao);
+    mostra("Secoes (" + om.secoes.length + "): " + om.secoes + "<hr>");
+    
+
+}
+
+function mostrarLocalizacao(localizacao){
+        //document.write("<a href='"+localizacao+"' target='_blank'>Localização</a>");
+        pulaLinha();
+		document.write("<iframe src='"+localizacao+"' width='300' height='150' style='border:0;'  loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>");
+		
+      
+    }
+
+function mostraImagem(src, alt){
+    document.write("<img src='"+ src + "' width='150' height='150' alt='"+alt+"'>");
+    pulaLinha();
+    pulaLinha();
+}
+
+function pulaLinha() {
+        document.write("<br>");
+}
+
+function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+};
+
+
+
+
+</script>
