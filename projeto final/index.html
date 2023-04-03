@@ -6,8 +6,14 @@
     Beltrano da Silva: Português 2.5 Inglês 9.9 Matemática 5 Geografia 7 Artes 5.5 Religião 6.2
     Pedro de Lara: História 7.3 Inglês 9.0 Matemática 7.3 Geografia 7.8 Artes 9.2 Religião 9.9`;
 
+//entrada.split('\n') : divide as strings por quebra de linha('\n'), separando os alunos com suas respectivas matérias e notas.
+// lisdtaNotasAlunos[]: criada para armazenar as listas dos alunos separadas pelo split
+
     var linhaResultadoIndividual = entrada.split('\n');
     var listaNotasAlunos = [];
+
+//estrutura criada para separar as strings por dois pontos excluindo os espaços entre elas. variável notas chama a função obterListaMateriasNotas e recebe os proximos resultados
+//gerados pelo for a partir do primeiro índice após os dois pontos(matérias e notas)
 
     for(var i = 0; i < linhaResultadoIndividual.length; i++){
         
@@ -16,14 +22,20 @@
             notas: obterListaMateriasNotas(linhaResultadoIndividual[i].split(':')[1])
         };
 
+    //insere no array a lista com matérias e notas por aluno
         listaNotasAlunos.push(notaAluno);
 
         
     }
+
+    //imprime na tela a lista com matérias e notas de cada aluno
     console.log(listaNotasAlunos);
     
+
+
+  
     function bubbleSort(array){
-    
+//estrutura de ordenação bubbleSort    
     for(var i = 0; i <= array.length-1; i++){
         for(var j = 0; j < ( array.length - i -1); j++){
 
@@ -39,27 +51,28 @@
 }
 
     
-
+//chamando a função com os valores respectivos para alunos com suas matérias e notas  
     gerarResultado1DosAlunos(listaNotasAlunos);
 
     function gerarResultado1DosAlunos(listaNotasAlunos){
         var resultadoFinal = [];
+        //estrutura para somar as matérias e notas com cada aluno e inserindo na variável resultadoFinal
         for (let i = 0; i < listaNotasAlunos.length; i++) {
             var resultadoAluno = listaNotasAlunos[i].nomeAluno + " : " + obterResultadoNotasDosAlunos(listaNotasAlunos[i].notas);
             resultadoFinal.push(resultadoAluno);
         }
 
         var resultadoFinalSort = bubbleSort(resultadoFinal);
-
+//forEach percorre o array para comparar os valores salvos na variável resultadoFinalSort, se for maior ou igual ele vai imprimir no console. 
         resultadoFinalSort.forEach(e => { console.log(e) });
         
     }
    
-
+// funcao que ordena as notas das matérias de acordo com o valor maior. maiorNota + matériaMaiorNota na variável materiasMenorNota
     function obterResultadoNotasDosAlunos(notasMaterias){
         
         var notas = [];
-        
+
         notasMaterias.forEach(e => { notas.push(e.nota) });
         
         var notasOrdenadas = bubbleSort(notas);
@@ -77,6 +90,7 @@
     function obterMateriasPorNota(notaMateria, notasMaterias){
         var materias = [];
         notasMaterias
+        //.filter: vai percorrer todo o array e criar um novo com todos os elementos que passaram no teste implementado
             .filter( function(e){ return e.nota == notaMateria } )
             .forEach(e => materias.push(e.materia) );
 

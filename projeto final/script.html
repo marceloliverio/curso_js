@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotasAlunos</title>
+    <link rel="stylesheet" href="C:\Users\03396600150\Desktop\logica\curso_js\projeto final\style.css">
+</head>
+<script>
+
+    function pulaLinha() {
+        document.write('<br/><br/><hr/>')
+    }
+
+    function mostrarNotas(array) {
+
+
+        for (var j = 0; j < array.length; j++) {
+
+            document.write("<h3 style='color: #22D4FD'><strong>" + array[j].nome + '</strong></h3>');
+
+            for (var i = 0; i < array[j].notas.length; i++) {
+
+                document.write("<strong>" + array[j].materias[i] + ": </strong> " + array[j].notas[i] + " ");
+
+            }
+            pulaLinha();
+        }
+
+    }
+
+    function ordenaNomes(array) {
+
+        for (var i = 0; i <= array.length - 1; i++) {
+            for (var j = 0; j < (array.length - i - 1); j++) {
+
+                if (array[j].nome > array[j + 1].nome) {
+                    var copia = array[j]
+                    array[j] = array[j + 1]
+                    array[j + 1] = copia
+                }
+            }
+        }
+
+    }
+
+    var alunos = [{ nome: 'Paulo Moreira', materias: ["História", "Português", "Inglês", "Matemática", "Geografia", "Artes", "Religião"], notas: [8.9, 8.2, 9, 9.5, 8.8, 7, 5] },
+    { nome: 'Ana Ferreira', materias: ["História", "Português", "Inglês", "Matemática", "Geografia", "Artes", "Religião"], notas: [9.5, 9.5, 9.5, 8, 7.5, 9, 9] },
+    { nome: 'Fulano de Tal', materias: ["História", "Português", "Inglês", "Matemática", "Geografia", "Artes", "Religião"], notas: [5, 4, 4, 7.3, 10, 7, 2] },
+    { nome: 'Beltrano da Silva', materias: ["História", "Português", "Inglês", "Matemática", "Geografia", "Artes", "Religião"], notas: [7, 2.5, 9.9, 5, 7, 5.5, 6.2] },
+    { nome: 'Pedro de Lara', materias: ["História", "Português", "Inglês", "Matemática", "Geografia", "Artes", "Religião"], notas: [7.3, 3, 9, 7.3, 7.8, 9.2, 9.9] }];
+
+
+
+    function ordenarNotasNomes(array) {
+
+        ordenaNomes(array);
+
+        //Ordena maior nota para menor;
+
+        for (var j = 0; j < array.length; j++) {
+
+            
+            var contador = 0;
+
+            while (contador < array[j].notas.length - 1) {
+
+                for (var i = 0; i < array[j].notas.length - 1; i++) {
+
+                    if (array[j].notas[i + 1] > array[j].notas[i]) {
+
+                        var copiaNota = array[j].notas[i + 1];
+                        array[j].notas[i + 1] = array[j].notas[i];
+                        array[j].notas[i] = copiaNota;
+
+                        var copiaMateria = array[j].materias[i + 1];
+                        array[j].materias[i + 1] = array[j].materias[i];
+                        array[j].materias[i] = copiaMateria;
+                    }
+
+                }
+                contador++
+            }
+        }
+
+        //Ordena notas iguais em ordem alfabetica;
+
+
+        for (var i = 0; i < array.length; i++) {
+
+            for (var j = 0; j < array[i].notas.length; j++) {
+
+                for (var z = j; z < array[i].notas.length - 1; z++) {
+
+                    if (array[i].notas[j] == array[i].notas[z + 1]) {
+
+                        if (array[i].materias[j] > array[i].materias[z + 1]) {
+                            var copia = alunos[i].materias[j];
+                            alunos[i].materias[j] = array[i].materias[z + 1];
+                            array[i].materias[z + 1] = copia;
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        document.write("<br/><h1 style='font-size: 30px; color: #22D4FD'><strong><center>Alunos Ordenados</center></strong></h1>");
+
+        pulaLinha();
+        mostrarNotas(array);
+
+    }
+
+    function listaEstudantesMaioresMenoresNotas(array) {
+
+        document.write("<br/><h1 style='font-size: 30px; color: #22D4FD'><center><strong>Lista de estudantes e suas maiores e menores notas</center></strong></h1>");
+        pulaLinha();
+
+        var contador = 0;
+
+        while (contador < alunos.length) {
+            var maiores = [];
+            var menores = [];
+
+            maiores.push(array[contador].materias[0]);
+
+            //Armazena as maiores notas de cada aluno
+            for (var i = 0; i < array[contador].notas.length - 1; i++) {
+
+                if (array[contador].notas[0] == array[contador].notas[i + 1]) {
+                    maiores.push(array[contador].materias[i + 1]);
+                } else {
+                    break;
+                }
+
+            }
+
+            //Armazena as menores notas de cada aluno
+            var flag = true;
+            if ((maiores.length) == array[contador].notas.length) {
+
+                flag = false;
+
+            } else {
+                menores.push(array[contador].materias[array[contador].notas.length - 1]);
+            }
+
+            if (flag) {
+                for (var i = 0; i < array[contador].notas.length - 1; i++) {
+                    if (array[contador].notas[array[contador].notas.length - 1] == array[contador].notas[array[contador].notas.length - (i + 2)]) {
+                        menores.push(array[contador].materias[array[contador].notas.length - (i + 2)])
+                    } else {
+                        break;
+                    }
+
+                }
+
+            }
+
+            //imprimir maior e menor notas
+
+            var maior = maiores.join(' , ');
+            var menor;
+            if (!flag) {
+                menor = "<strong>(não houve menor nota</strong>)";
+
+                document.write("<span style='color: #22D4FD'><strong>" + array[contador].nome + "</span>:</strong> maior <strong>nota " + array[contador].notas[0] + "</strong> em ( " + maior + " ). E a menor nota em " + menor + "");
+
+            } else {
+                menores.reverse();
+                menor = menores.join(' , ');
+
+                document.write("<span style='color: #22D4FD'><strong>" + array[contador].nome + "</span>:</strong> maior <strong>nota " + array[contador].notas[0] + "</strong> em ( " + maior + " ). E a menor <strong>nota " + array[contador].notas[array[contador].notas.length - 1] + "</strong> em ( " + menor + " )");
+
+            }
+            pulaLinha();
+            contador++;
+
+        }
+
+
+
+
+    }
+
+    function listaMatériasMaioresMenoresNotas(array) {
+
+        for (var i = 0; i < array.length; i++) {
+            var contador = 0;
+
+            while (contador < array[i].notas.length - 1) {
+                for (var j = 0; j < (array[i].notas.length - 1); j++) {
+
+                    if (array[i].materias[j] > array[i].materias[j + 1]) {
+                        var copia = array[i].materias[j]
+                        array[i].materias[j] = array[i].materias[j + 1]
+                        array[i].materias[j + 1] = copia
+
+                        copia = array[i].notas[j]
+                        array[i].notas[j] = array[i].notas[j + 1]
+                        array[i].notas[j + 1] = copia;
+                    }
+                }
+
+                contador++;
+
+            }
+
+        }
+
+        document.write("<br/><h1 style='font-size: 30px; color: #22D4FD'><center><strong>Lista de matérias e suas maiores e menores notas</strong></center></h1><br/><hr>");
+
+
+        for (var j = 0; j < array[0].materias.length; j++) {
+            var maiorNota = 0;
+            var alunoMaiorNota = [];
+
+            var menorNota = 11;
+            var alunoMenorNota = [];
+
+            for (var z = 0; z < array.length; z++) {
+                if (maiorNota < array[z].notas[j]) {
+                    maiorNota = array[z].notas[j];
+
+
+                }
+                if (menorNota > array[z].notas[j]) {
+                    menorNota = array[z].notas[j];
+
+                }
+
+            }
+
+            for (var i = 0; i < array.length; i++) {
+
+
+                if (maiorNota == array[i].notas[j]) {
+                    alunoMaiorNota.push(array[i].nome);
+                }
+                if (menorNota == array[i].notas[j]) {
+                    alunoMenorNota.push(array[i].nome);
+
+                }
+
+            }
+            var maior = alunoMaiorNota.join(' , ');
+
+
+            if (alunoMenorNota.length == array.length) {
+                menorNota = 'não houve menor nota';
+                document.write("<span style='color: #22D4FD'><strong>" + array[0].materias[j] + "</strong></span>: maior <strong>nota: " + maiorNota + "</strong> obtida por ( " + maior + " ) e a menor nota em <strong>(" + menorNota + " )</strong>.");
+                pulaLinha();
+
+            } else {
+                document.write("<span style='color: #22D4FD'><strong>" + array[0].materias[j] + "</strong></span>: maior <strong>nota: " + maiorNota + "</strong> obtida por ( " + maior + " ) e menor <strong>nota: " + menorNota + "</strong> obtida por ( " + alunoMenorNota + ")");
+                pulaLinha();
+            }
+
+
+
+
+        }
+    }
+
+    //mostrarNotas(alunos);
+    ordenarNotasNomes(alunos);
+    listaEstudantesMaioresMenoresNotas(alunos);
+    listaMatériasMaioresMenoresNotas(alunos);
+
+ 
+
+  </script>
+  
+      <footer class="rodape">
+        <p>Desenvolvido por Oliverio.</p>
+    </footer>
+</body>
+
+</html>
