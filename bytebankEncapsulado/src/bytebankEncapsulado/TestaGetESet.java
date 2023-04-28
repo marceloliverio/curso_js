@@ -10,5 +10,6 @@ public class TestaGetESet {
 		paulo.setNome ("paulo silveira");
 		
 		conta.setTitular(paulo);
+		System.out.println("teste cliente: " + conta.getTitular().getNome());
 	}
 }
