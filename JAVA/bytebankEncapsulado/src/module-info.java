@@ -6,4 +6,5 @@
  *
  */
 module bytebankEncapsulado {
+	requires java.desktop;
 }

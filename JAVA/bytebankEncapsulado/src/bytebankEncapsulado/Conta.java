@@ -8,10 +8,10 @@ public class Conta {
 	private Cliente titular;
 	private static int total;
 
-	
+	//método construtor
     public Conta( int agencia, int numero) { 
         Conta.total++;
-        System.out.println("O total de contas é: " + Conta.total);
+        //System.out.println("O total de contas é: " + Conta.total);
     	this.agencia = agencia;
         this.numero = numero;
         System.out.println("estou criando uma conta " + this.numero);
@@ -78,7 +78,8 @@ public class Conta {
 		return titular;
 	}
 	
-	public int getTotal() {
+	public static int getTotal() {
+		
 		return Conta.total;
 	}
 }
