@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CachorroAPI</title>
+</head>
+<body>
+
+        <main class="conteudo">
+        <div class="principal">
+            <div class="cachorro"></div>
+            <form action="" class="adicionar" id="novoItem">
+                <label for="item">Selecione a raça</label>
+               
+                <select name="racaDog" id="racaDog">
+                    <option value="akita">Akita</option>
+                    <option value="beagle">Beagle</option>
+                    <option value="borzoi">Collie</option>
+                    <option value="boxer">Boxer</option>
+                    <option value="bulldog-french">Bulldogue Francês</option>
+                    <option value="chow">Chow</option>
+                    <option value="collie-border">Border Collie</option>
+                    <option value="corgi-cardigan">Corgi</option>
+                    <option value="dachshund">Salsicha</option>
+                    <option value="dalmatian">Dalmata</option>
+                    <option value="doberman">Doberman</option>
+                    <option value="eskimo">Rusky Siberiano</option>
+                    <option value="germanshepherd">Pastor Alemão</option>
+                    <option value="havanese">Shitsu</option>
+                    <option value="labrador">Labrador</option>
+                    <option value="maltese">Maltês</option>
+                    <option value="pinscher-miniature">Pinscher</option>
+                    <option value="pitbull">Pitbull</option>
+                    <option value="pug">Pug</option>
+                    <option value="redbone">Caramelo</option>
+                </select>
+                <button onclick="buscarDog()">pesquisar</button>
+                
+                <div class="botoes "></div>
+                <input type="submit" value="Adicionar" class="pesquisar">
+                <input type="submit" value="Próximo" class="pesquisar">
+                <input type="submit" value="Anterior" class="pesquisar">
+            </form>
+        </div>
+        
+        <ul class="lista" id="lista">
+            
+        </ul>
+    </main>
+
+    <script src="main.js"></script>
+    
+</body>
+</html>
