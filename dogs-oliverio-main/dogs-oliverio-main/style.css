@@ -1,0 +1,113 @@
+/* Reset default margin and padding for the whole page */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply some basic styling to the header and nav */
+header {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f2f2f2;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f1f1f1, #c1c1c1);
+  }
+  
+  main {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  label {
+    font-size: 18px;
+  }
+  
+  .dog-selector {
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .pesquisar {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4287f5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #imagem {
+    width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: flex;
+  }
+  
+  .save {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4287f5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .listar_imagem {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .listar_imagem p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .listar_imagens {
+    text-align: center;
+    margin-top: 50px;
+    width: 250px;
+  }
+  
+  .listar_imagens p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .listar_imagens .imagem {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+img {
+    width: 250px;
+    height: 250px;
+  }
+  
